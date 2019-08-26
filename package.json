@@ -7,27 +7,35 @@
     "lib": "lib"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "webpack-dev-server --open --env.test --mode=development",
     "build": "webpack",
-    "start": "webpack-dev-server --open --mode=development"
+    "start": "webpack-dev-server --open --mode=development",
+    "docs": "jsdoc src --pedantic -r -d docs"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/preset-env": "^7.2.3",
-    "babel-loader": "^8.0.5",
-    "clean-webpack-plugin": "^1.0.0",
-    "css-loader": "^2.1.0",
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-private-methods": "^7.4.4",
+    "@babel/plugin-transform-async-to-generator": "^7.5.0",
+    "@babel/preset-env": "^7.5.5",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^1.0.1",
+    "css-loader": "^2.1.1",
+    "eslint": "^6.2.2",
+    "eslint-loader": "^3.0.0",
     "html-webpack-plugin": "^3.2.0",
     "inline-source-map": "^0.6.2",
+    "jsdoc": "^3.6.3",
     "style-loader": "^0.23.1",
-    "webpack": "^4.28.1",
-    "webpack-cli": "^3.2.1",
-    "webpack-dev-server": "^3.1.14"
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.7",
+    "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
-    "pixi.js": "^4.8.5"
+    "babel-polyfill": "^6.26.0"
   }
 }

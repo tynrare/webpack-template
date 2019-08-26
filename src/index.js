@@ -1,9 +1,18 @@
-function component() {
-    let element = document.createElement('div');
+/** @format */
 
-    element.innerHTML = "test";
+require('babel-polyfill');
 
-    return element;
-  }
+/**
+ * test
+ */
+function testComponent() {
+	const element = document.createElement('div');
 
-  document.body.appendChild(component());
+	element.innerHTML = 'test1';
+
+	return element;
+}
+
+cgn.logger.log('test');
+
+document.body.appendChild(testComponent());
