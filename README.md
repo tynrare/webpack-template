@@ -35,7 +35,7 @@ DeepScan stats: https://deepscan.io/dashboard#view=project&tid=5038&pid=6835&bid
 
 How to add new case:
  - Create file `./src/test/manual/*.mtest.js`
- - Add new require entry in `/src/test/manual.js::getTestsCasesList` function
+ - Add new require entry in `/src/test/manual.js::testCasesList`
 
 === Auto tests
 

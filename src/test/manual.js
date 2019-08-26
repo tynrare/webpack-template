@@ -8,19 +8,12 @@
  * @module Tests/Manual/Index
  */
 
-/**
- * returns cases list
- *
- * @return {Object<function>} list of cases
- */
-export function getTestsCasesList() {
-	/* eslint-disable global-require */
-	//Add new tests here:
-	return {
-		example: require('@test/manual/example.mtest.js')
-	};
-	/* eslint-enable global-require */
-}
+/* eslint-disable global-require */
+//Add new tests here:
+const testCasesList = {
+	example: require('@test/manual/example.mtest.js')
+};
+/* eslint-enable global-require */
 
 /**
  * starts test if it set in URL
@@ -30,10 +23,18 @@ export function initTests() {
 
 	if (urlParams.has('testcase')) {
 		const name = urlParams.get('testcase');
-		const testcase = getTestsCasesList()[name];
-		cgn.logger.info('start test ' + name);
-		testcase();
+		const testcase = testCasesList[name];
+		cgn.logger.info(`start test '${name}'`);
+		testcase.default();
 	} else {
+		const ul = document.createElement('ui');
+		for (const key in testCasesList) {
+			const li = document.createElement('li');
+			li.innerHTML = `<a href='?testcase=${key}'>run '${key}' test</a>`;
+			ul.appendChild(li);
+		}
+		document.body.appendChild(ul);
+
 		cgn.logger.error('nothing to run. select case in dev menu');
 	}
 }

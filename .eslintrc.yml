@@ -68,7 +68,6 @@ rules:
   function-paren-newline: error
   generator-star-spacing: error
   global-require: error
-  guard-for-in: error
   handle-callback-err: error
   id-blacklist: error
   id-length: error
@@ -104,7 +103,9 @@ rules:
     - warn
     - max: 3
   max-params: warn
-  max-statements: error
+  max-statements: 
+    - warn
+    - max: 10
   max-statements-per-line: error
   multiline-comment-style: error
   multiline-ternary: error
