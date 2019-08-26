@@ -11,6 +11,6 @@
 import Logger from '@lib/logger.js'
 
 Logger.useDefaults();
-Logger.setLevel(Logger.WARN);
+Logger.setLevel(Logger.LOG);
 
 export default Logger;

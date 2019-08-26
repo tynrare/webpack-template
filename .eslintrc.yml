@@ -2,7 +2,9 @@ env:
   browser: true
   es6: true
   node: true
-extends: 'eslint:recommended'
+  mocha: true
+extends:
+  - 'eslint:recommended'
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly

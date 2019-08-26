@@ -8,15 +8,52 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = function(env) {
 	const production = process.env.NODE_ENV === 'production';
-	const test = env && !!env.test;
-	const node_test = env && !!env.node_test;
+	const test = env && env.test;
+
+	//default entry point
+	let entry = './src/index.js';
+	//default rules:
+	let rules = [
+		{
+			enforce: 'pre',
+			test: /\.js$/,
+			exclude: /node_modules|lib/,
+			loader: 'eslint-loader',
+			options: {
+				fix: false
+			}
+		},
+		{
+			test: /\.js$/,
+			exclude: /node_modules/,
+			loader: 'babel-loader'
+		},
+		{
+			test: /\.css$/,
+			use: ['style-loader', 'css-loader']
+		}
+	]
+
+	switch (test) {
+		case 'auto.browser':
+			rules.push({
+				test: /test\.js$/,
+        use: 'mocha-loader',
+        exclude: /node_modules/,
+			})
+		case 'auto.node':
+			entry = './src/test/auto.js'
+			break;
+		case 'manual':
+			entry = './src/test/manual.js'
+	}
 
 	return {
-		mode: process.env.NODE_ENV || 'development',
+		mode: process.env.NODE_ENV || 'production',
 		optimization: {
 			minimize: production
 		},
-		entry: './src/index.js',
+		entry: entry,
 		output: {
 			filename: '[name].bundle.js',
 			path: path.resolve(__dirname, 'dist')
@@ -32,28 +69,8 @@ module.exports = function(env) {
 			}
 		},
 		module: {
-			rules: [
-				{
-					enforce: 'pre',
-					test: /\.js$/,
-					exclude: /node_modules|lib/,
-					loader: 'eslint-loader',
-					options: {
-						fix: false
-					}
-				},
-				{
-					test: /\.js$/,
-					exclude: /node_modules/,
-					loader: 'babel-loader'
-				},
-				{
-					test: /\.css$/,
-					use: ['style-loader', 'css-loader']
-				}
-			]
+			rules: rules
 		},
-		//Dev server {
 		plugins: [
 			new CleanWebpackPlugin(['dist']),
 			new HtmlWebpackPlugin({

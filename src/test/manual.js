@@ -5,16 +5,27 @@
  * @author tynrare
  * @version 1
  * @date 2019-08-26
- * @module Tests/Index
+ * @module Tests/Manual/Index
  */
 
-//cases
-import example from '@app/_test_/manual/example.mtest.js';
+/**
+ * returns cases list
+ *
+ * @return {Object<function>} list of cases
+ */
+export function getTestsCasesList() {
+	/* eslint-disable global-require */
+	//Add new tests here:
+	return {
+		example: require('@test/manual/example.mtest.js')
+	};
+	/* eslint-enable global-require */
+}
 
 /**
  * starts test if it set in URL
  */
-export async function initTests() {
+export function initTests() {
 	const urlParams = new URLSearchParams(window.location.search);
 
 	if (urlParams.has('testcase')) {
@@ -27,16 +38,7 @@ export async function initTests() {
 	}
 }
 
-/**
- * returns cases list
- *
- * @return {Object<function>} list of cases
- */
-export function getTestsCasesList() {
-	return {
-		example
-	};
-}
+initTests();
 
 /**
  * Sets new URL and reloads page. Expects new page will start 'initTests'

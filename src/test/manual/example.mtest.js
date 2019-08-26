@@ -13,5 +13,5 @@
 export default function run() {
 	const element = document.createElement('div');
 	element.innerHTML = 'test1';
-	document.body.appendChild(component());
+	document.body.appendChild(element);
 }
