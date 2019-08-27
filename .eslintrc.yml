@@ -135,6 +135,7 @@ rules:
   no-extra-label: error
   no-extra-parens: error
   no-floating-decimal: error
+  no-fallthrough: warn
   no-implicit-coercion: error
   no-implicit-globals: error
   no-implied-eval: error
