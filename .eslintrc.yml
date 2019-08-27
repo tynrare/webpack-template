@@ -70,7 +70,6 @@ rules:
   global-require: error
   handle-callback-err: error
   id-blacklist: error
-  id-length: error
   id-match: error
   implicit-arrow-linebreak: error
   indent:
@@ -98,17 +97,15 @@ rules:
     - code: 120
       comments: 240
   max-lines: error
-  max-lines-per-function: error
+  max-lines-per-function: warn
   max-nested-callbacks:
     - warn
     - max: 3
   max-params: warn
-  max-statements: 
+  max-statements:
     - warn
     - max: 10
   max-statements-per-line: error
-  multiline-comment-style: error
-  multiline-ternary: error
   new-cap: error
   new-parens: error
   newline-after-var: 'off'
@@ -133,7 +130,6 @@ rules:
   no-extend-native: error
   no-extra-bind: error
   no-extra-label: error
-  no-extra-parens: error
   no-floating-decimal: error
   no-fallthrough: warn
   no-implicit-coercion: error
@@ -152,6 +148,8 @@ rules:
     - ignore:
       - 0
       - 1
+      - 2
+      - 0.5
   no-mixed-operators: error
   no-mixed-requires: error
   no-multi-assign: error
@@ -190,15 +188,14 @@ rules:
     - error
     - allowIndentationTabs: true
   no-template-curly-in-string: error
-  no-ternary: error
   no-throw-literal: error
   no-trailing-spaces: error
   no-undef-init: error
   no-undefined: error
-  no-underscore-dangle: error
+  no-underscore-dangle: warn
   no-unmodified-loop-condition: error
   no-unneeded-ternary: error
-  no-unused-expressions: error
+  no-unused-expressions: warn
   no-use-before-define: 'off'
   no-useless-call: error
   no-useless-computed-key: error
