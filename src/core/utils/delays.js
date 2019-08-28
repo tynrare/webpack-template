@@ -58,6 +58,22 @@ const Delays = {
 		}, time);
 	},
 	/**
+	 * stops interval
+	 *
+	 * @param id interval id
+	 */
+	clearInterval(id) {
+		clearInterval(id);
+	},
+	/**
+	 * stops timeout
+	 *
+	 * @param id timeout id
+	 */
+	clearTimeout(id) {
+		clearTimeout(id);
+	},
+	/**
 	 * callbacks timeouts
 	 *
 	 * @param {funcion} callback
