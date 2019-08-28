@@ -220,7 +220,6 @@ rules:
   operator-linebreak: error
   padded-blocks: 'off'
   padding-line-between-statements: error
-  prefer-arrow-callback: error
   prefer-const: error
   prefer-destructuring: error
   prefer-named-capture-group: error
