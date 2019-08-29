@@ -54,4 +54,35 @@ describe('Core tests', () => {
 			cgn.delays.timeout(done);
 		});
 	});
+	describe('Logger (check console)', () => {
+		before(() => {
+			cgn.log.groups.test1 = 2;
+			cgn.log.groups.test2 = 5;
+		});
+		it('simple log', () => {
+			cgn.log.log('simple log');
+		});
+		it('warn log', () => {
+			cgn.log.warn('warn log');
+		});
+		it('error log', () => {
+			cgn.log.error('error log');
+		});
+		it('group log', () => {
+			cgn.log.loggingLevel = 2;
+			cgn.log.group('test1', 'this log should display');
+			cgn.log.group.log('test1', 'this log should display too');
+			cgn.log.group('test2', 'this log should not display');
+		});
+		it('group warn', () => {
+			cgn.log.loggingLevel = 2;
+			cgn.log.group.warn('test1', 'this warn should display');
+			cgn.log.group.warn('test2', 'this warn should not display');
+		});
+		it('group error', () => {
+			cgn.log.loggingLevel = 2;
+			cgn.log.group.error('test1', 'this error should display');
+			cgn.log.group.error('test2', 'this error should not display');
+		});
+	});
 });
