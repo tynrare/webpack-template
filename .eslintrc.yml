@@ -253,6 +253,14 @@ rules:
   space-in-parens:
     - error
     - never
+  require-jsdoc:
+    - error
+    - require:
+        FunctionDeclaration: true
+        MethodDefinition: true
+        ClassDeclaration: true
+        ArrowFunctionExpression: false
+        FunctionExpression: false
   space-infix-ops: error
   space-unary-ops: error
   spaced-comment: 'off'

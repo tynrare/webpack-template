@@ -7,7 +7,7 @@ My webpack template with:
 - Babel preset
 - async/await. It adds additional 900kB, so if you want to disable it - delete `require("babel-polyfill")` in index.js
 - logger instead default console (cgn.logger.log)
-- eslinter
+- eslinter. Also [jsdoc plugin](https://github.com/gajus/eslint-plugin-jsdoc) for it
 - tests
 
 DeepScan stats: https://deepscan.io/dashboard#view=project&tid=5038&pid=6835&bid=59639

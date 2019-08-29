@@ -23,7 +23,7 @@ const cgn = {
 	 * @see {@link module:Core/Utils/Logger.Logger}
 	 * @static
 	 */
-	logger,
+	log: logger,
 	/**
 	 * @see {@link module:Core/Utils/EventsManager.EventsManager}
 	 * @static

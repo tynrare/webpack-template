@@ -21,6 +21,9 @@ class EventsManager extends CoreEvents {
 
 	#listeners = new Map();
 
+	/**
+	 * constructs
+	 */
 	constructor() {
 		super();
 		this.setMaxListeners(MAX_LISTENERS);
@@ -49,6 +52,7 @@ class EventsManager extends CoreEvents {
 		});
 	}
 
+	/* eslint-disable max-params */
 	/**
 	 * adds listener
 	 *
@@ -58,11 +62,9 @@ class EventsManager extends CoreEvents {
 	 * @param {string} [group='default'] group to add listener to. Used for 'discard()' cleanups
 	 * @returns {number} id of listener
 	 */
-
-	/* eslint-disable max-params */
 	on(id, callback, context = null, group = 'default') {
-		logger.log(
-			'silly',
+		logger.group(
+			'core-events',
 			`listen (${group}) event #${this.#listenersCount} "${id}" for function`,
 			callback
 		);
@@ -100,18 +102,22 @@ class EventsManager extends CoreEvents {
 	 */
 	removeListener(id, callback) {
 		if (callback) {
-			logger.log('silly', `unlisten event "${id}" for function`, callback);
+			logger.group('core-events', `unlisten event "${id}" for function`, callback);
 
 			super.removeListener(id, callback);
 		} else {
 			if (!this.#listeners.has(id)) {
-				logger.log('silly', `tried to unlisten event #${id} which not exists`);
+				logger.group('core-events', `tried to unlisten event #${id} which not exists`);
 
 				return;
 			}
 
 			const listener = this.#listeners.get(id);
-			logger.log('silly', `unlisten event #${id} ("${listener.id}") for function`, listener.func);
+			logger.group(
+				'core-events',
+				`unlisten event #${id} ("${listener.id}") for function`,
+				listener.func
+			);
 
 			super.removeListener(listener.id, listener.func);
 			this.#listeners.delete(id);
