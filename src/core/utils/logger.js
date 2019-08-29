@@ -22,8 +22,8 @@ class Logger {
 	 *
 	 * @private
 	 */
-	#groups = {
-		'core-events': 5
+	groups = {
+		CORE_EVENTS: 5
 	};
 
 	/**
@@ -38,7 +38,7 @@ class Logger {
 	 * @param {*?} args any logging data
 	 */
 	group(group, ...args) {
-		const level = this.#groups[group];
+		const level = this.groups[group];
 		if (level && this.loggingLevel >= level) {
 			LoggerCore.log(`${group}: `, ...args);
 		}
@@ -77,7 +77,7 @@ class Logger {
 	 * @param {object<string, number>} levels new levels for all old or new groups
 	 */
 	assignGroupLevels(levels) {
-		this.#groups = Object.assign(this.#groups, levels);
+		this.groups = Object.assign(this.groups, levels);
 	}
 }
 

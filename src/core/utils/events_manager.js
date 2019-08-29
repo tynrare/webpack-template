@@ -64,7 +64,7 @@ class EventsManager extends CoreEvents {
 	 */
 	on(id, callback, context = null, group = 'default') {
 		logger.group(
-			'core-events',
+			logger.groups.CORE_EVENTS,
 			`listen (${group}) event #${this.#listenersCount} "${id}" for function`,
 			callback
 		);
@@ -102,19 +102,19 @@ class EventsManager extends CoreEvents {
 	 */
 	removeListener(id, callback) {
 		if (callback) {
-			logger.group('core-events', `unlisten event "${id}" for function`, callback);
+			logger.group(logger.groups.CORE_EVENTS, `unlisten event "${id}" for function`, callback);
 
 			super.removeListener(id, callback);
 		} else {
 			if (!this.#listeners.has(id)) {
-				logger.group('core-events', `tried to unlisten event #${id} which not exists`);
+				logger.group(logger.groups.CORE_EVENTS, `tried to unlisten event #${id} which not exists`);
 
 				return;
 			}
 
 			const listener = this.#listeners.get(id);
 			logger.group(
-				'core-events',
+				logger.groups.CORE_EVENTS,
 				`unlisten event #${id} ("${listener.id}") for function`,
 				listener.func
 			);
