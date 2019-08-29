@@ -1,4 +1,4 @@
-/** @format */
+/* eslint-disable max-lines-per-function */
 
 const assert = require('assert');
 

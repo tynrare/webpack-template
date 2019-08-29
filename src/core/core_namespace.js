@@ -1,9 +1,7 @@
 /**
- * @format
  * @file core_namespace.js
  * @author tynrare
  * @version 1
- * @date 2019-05-14
  * @module Core/CoreNamespace
  */
 
@@ -22,17 +20,17 @@ import delays from '@core/utils/delays.js';
  */
 const cgn = {
 	/**
-	 * @see {@link module:Utils/Logger.Logger}
+	 * @see {@link module:Core/Utils/Logger.Logger}
 	 * @static
 	 */
 	logger,
 	/**
-	 * @see {@link module:Utils/EventsManager.EventsManager}
+	 * @see {@link module:Core/Utils/EventsManager.EventsManager}
 	 * @static
 	 */
 	events,
 	/**
-	 * @see {@link module:Utils/Delays.Delays}
+	 * @see {@link module:Core/Utils/Delays.Delays}
 	 * @static
 	 */
 	delays

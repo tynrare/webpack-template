@@ -3,4 +3,3 @@ tabWidth: 2
 useTabs: true
 singleQuote: true
 arrowParens: "always"
-insertPragma: true

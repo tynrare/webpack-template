@@ -1,9 +1,7 @@
 /**
- * @format
  * @file events_manager.js
  * @author tynrare
  * @version 1
- * @date 2019-05-14
  * @module Core/Utils/EventsManager
  */
 
@@ -15,6 +13,7 @@ const MAX_LISTENERS = 100;
 
 /**
  * singletone class for managing events
+ *
  * @static
  */
 class EventsManager extends CoreEvents {
@@ -40,7 +39,7 @@ class EventsManager extends CoreEvents {
 	/**
 	 * disables all listeners in selected group
 	 *
-	 * @Param group group to disable
+	 * @param {string} group group to disable
 	 */
 	discard(group) {
 		this.#listeners.forEach((listener) => {
@@ -52,12 +51,15 @@ class EventsManager extends CoreEvents {
 
 	/**
 	 * adds listener
-	 * @Param id id of event
-	 * @Param callback callback function
-	 * @Param {*?} [context=null] scope to apply function to
-	 * @Param {String} [group='default'] group to add listener to. Used for 'discard()' cleanups
-	 * @returns {Number} id of listener
+	 *
+	 * @param {string} id id of event
+	 * @param {Function} callback callback function
+	 * @param {*?} [context=null] scope to apply function to
+	 * @param {string} [group='default'] group to add listener to. Used for 'discard()' cleanups
+	 * @returns {number} id of listener
 	 */
+
+	/* eslint-disable max-params */
 	on(id, callback, context = null, group = 'default') {
 		logger.log(
 			'silly',
@@ -79,20 +81,22 @@ class EventsManager extends CoreEvents {
 	/**
 	 * according to docs (https://nodejs.org/api/events.html) addListener is alias for on(), but it isn't. So here it alias for on()
 	 *
-	 * @Param id id of event
-	 * @Param callback callback function
-	 * @Param {*?} [context=null] scope to apply function to
-	 * @Param {String} [group='default'] group to add listener to. Used for 'discard()' cleanups
-	 * @returns {Number} id of listener
+	 * @param {string} id id of event
+	 * @param {Function} callback callback function
+	 * @param {*?} [context=null] scope to apply function to
+	 * @param {string} [group='default'] group to add listener to. Used for 'discard()' cleanups
+	 * @returns {number} id of listener
 	 */
 	addListener(id, callback, context = null, group = 'default') {
 		return this.on(id, callback, context, group);
 	}
+	/* eslint-enable max-params */
 
 	/**
 	 * removes listener. If you used addListener|on with 'context' argument, you cant removeListener by 'callback', only by id!
-	 * @Param {number|string} id id of event or id that addListener returns
-	 * @Param {function?} callback original callback listener used for event. null if you want to remove listener by listener id
+	 *
+	 * @param {number|string} id id of event or id that addListener returns
+	 * @param {Function?} callback original callback listener used for event. null if you want to remove listener by listener id
 	 */
 	removeListener(id, callback) {
 		if (callback) {
@@ -115,7 +119,10 @@ class EventsManager extends CoreEvents {
 	}
 
 	/**
-	 * save as removeListener
+	 * same as removeListener
+	 *
+	 * @param {number|string} id id of event or id that addListener returns
+	 * @param {Function?} callback original callback listener used for event. null if you want to remove listener by listener id
 	 */
 	off(id, callback) {
 		this.removeListener(id, callback);

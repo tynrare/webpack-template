@@ -5,11 +5,14 @@ env:
   mocha: true
 extends:
   - 'eslint:recommended'
+  - 'plugin:jsdoc/recommended'
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
   cgn: readonly
 parser: babel-eslint
+plugins:
+  - jsdoc
 parserOptions:
   ecmaVersion: 2018
   sourceType: module
@@ -236,7 +239,6 @@ rules:
     - single
   radix: error
   require-await: 'off'
-  require-jsdoc: error
   require-unicode-regexp: error
   rest-spread-spacing: error
   semi: 'off'
@@ -262,7 +264,6 @@ rules:
   unicode-bom:
     - error
     - never
-  valid-jsdoc: 'off'
   vars-on-top: error
   wrap-iife: error
   wrap-regex: error

@@ -1,5 +1,3 @@
-/** @format */
-
 const assert = require('assert');
 
 describe('Simple tests test', () => {
