@@ -2,74 +2,87 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const rules = require('./webpack.rules.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = function(env) {
 	const production = process.env.NODE_ENV === 'production';
-	const test = env && env.test;
-
-	//default entry point
-	let entry = './src/index.js';
-	//default rules:
-	let rules = [
-		{
-			enforce: 'pre',
-			test: /\.js$/,
-			exclude: /node_modules|lib/,
-			loader: 'eslint-loader',
-			options: {
-				fix: false
-			}
-		},
-		{
-			test: /\.js$/,
-			exclude: /node_modules/,
-			loader: 'babel-loader'
-		},
-		{
-			test: /\.css$/,
-			use: ['style-loader', 'css-loader']
-		}
-	]
+	const test = (env && env.test) || null;
+    const makechunks = Boolean(env && env.chunks);
+    let entry = './src/index.js';
 
 	switch (test) {
-		case 'auto.browser':
+		case 'unit':
 			rules.push({
 				test: /test\.js$/,
-        use: 'mocha-loader',
-        exclude: /node_modules/,
-			})
-		case 'auto.node':
-			entry = './src/test/auto.js'
-			break;
-		case 'manual':
-			entry = './src/test/manual.js'
+				use: 'mocha-loader',
+				exclude: /node_modules/
+			});
+            entry = './src/test/auto.js';
+            break;
+        case 'manual':
+            entry = './src/test/manual.js';
+            break;
 	}
 
 	return {
 		mode: process.env.NODE_ENV || 'production',
 		optimization: {
-			minimize: production
-		},
-		entry: entry,
+            minimize: production,
+            minimizer: [
+                // https://github.com/terser/terser#minify-options
+                new TerserPlugin({
+                    terserOptions: {
+                        mangle: false,
+                        extractComments: false
+                    }
+                }),
+            ],
+            moduleIds: 'hashed',
+            runtimeChunk: makechunks && 'single',
+            splitChunks: makechunks && {
+                cacheGroups: {
+                    vendor: {
+                        test: /[\\/]node_modules[\\/]|[\\/]lib[\\/]/,
+                        name: 'vendors',
+                        chunks: 'all'
+                    },
+                    default: {
+
+                        minChunks: 2,
+
+                        priority: -20,
+
+                        reuseExistingChunk: true
+
+                    }
+                }
+            }
+        },
+		entry: ['babel-polyfill', entry],
 		output: {
-			filename: '[name].bundle.js',
+			filename: '[name].js',
+            chunkFilename: '[name].[contenthash].bundle.js',
 			path: path.resolve(__dirname, 'dist')
 		},
 		resolve: {
 			extensions: ['.js'],
 			alias: {
 				'@app': path.resolve(__dirname, './src/'),
+				'@game': path.resolve(__dirname, './src/game'),
+				'@classes': path.resolve(__dirname, './src/game/classes'),
+				'@res': path.resolve(__dirname, './res'),
+				'@backend': path.resolve(__dirname, './src/game/backend'),
 				'@core': path.resolve(__dirname, './src/core'),
 				'@test': path.resolve(__dirname, './src/test'),
-				'@lib': path.resolve(__dirname, './lib/'),
-				'@res': path.resolve(__dirname, './res/')
+				'@lib': path.resolve(__dirname, './lib/')
 			}
 		},
 		module: {
-			rules: rules
+			rules
 		},
 		plugins: [
 			new CleanWebpackPlugin(['dist']),

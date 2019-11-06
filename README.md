@@ -16,13 +16,13 @@ DeepScan stats: https://deepscan.io/dashboard#view=project&tid=5038&pid=6835&bid
 ## Building/Running/Tests
 
 - `npm install` — for first start
-- `npm start` — debug dev-server
-- `npm run manual-test` — debug manual tests on dev-server
-- `npm run auto-node-test` — debug auto tests in node.js (for CI)
-- `npm run auto-browser-test` — debug auto tests in browser with dev-server
-- `npm run build` — build for production
+- `npm watch` — debug dev-server
+- `npm run manual-test-watch` — debug manual tests on dev-server
+- `npm run unit-test` — debug auto tests in node.js (for CI)
+- `npm run unit-test-watch` — debug auto tests in browser with dev-server
+- `npm run build-prod` — build for production
 - `npm run build-dev` — build for debug
-- `npm run build-test` — build manual tests
+- `npm run manual-test-build` — build manual tests
 - `npm run docs` — docs
 
 ## Usage
@@ -31,7 +31,7 @@ DeepScan stats: https://deepscan.io/dashboard#view=project&tid=5038&pid=6835&bid
 
 === Manual tests
 
-`npm run manual-test` - environment where you can write your own /whatever you want/ cases.
+`npm run manual-test-watch` - environment where you can write your own /whatever you want/ cases.
 
 How to add new case:
  - Create file `./src/test/manual/*.mtest.js`
@@ -39,7 +39,7 @@ How to add new case:
 
 === Auto tests
 
-`npm run auto-node-test`, `npm run auto-browser-test` - mocha tests. First in node (For testing you code in CI), second in browser with interactive, hot reload, etc.
+`npm run unit-test`, `npm run unit-test-watch` - mocha tests. First in node (For testing you code in CI), second in browser with interactive, hot reload, etc.
 
 How to add new case:
  - Create file `./src/test/auto/*.test.js`
@@ -49,9 +49,9 @@ How to add new case:
 
  all builds lays in ./dist folder
 
-`npm run build` builds in production mode with minification, without source maps.
+`npm run build-prod` builds in production mode with minification, without source maps.
 `npm run build-dev` builds with source maps
-`npm run build-test` builds manual tests with source maps
+`npm run manual-test-build` builds manual tests with source maps
 
 ### Docs
 
