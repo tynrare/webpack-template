@@ -6,7 +6,7 @@
 		"@babel/plugin-proposal-private-methods",
 		["istanbul", {
           "exclude": [
-            "lib/**/*"
+            "lib/**/*", "src/test/**/*"
           ]
         }]
 	]

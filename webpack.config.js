@@ -29,6 +29,9 @@ module.exports = function(env) {
 	}
 
 	return {
+        node: {
+            fs: "empty"
+        },
 		mode: process.env.NODE_ENV || 'production',
 		optimization: {
             minimize: production,
@@ -41,6 +44,8 @@ module.exports = function(env) {
                     }
                 }),
             ],
+            removeAvailableModules: true,
+            removeEmptyChunks: true,
             moduleIds: 'hashed',
             runtimeChunk: makechunks && 'single',
             splitChunks: makechunks && {
@@ -60,7 +65,7 @@ module.exports = function(env) {
         },
 		entry: ['babel-polyfill', entry],
 		output: {
-			filename: '[name].js',
+			filename: 'index.js',
             chunkFilename: '[name].[contenthash].bundle.js',
 			path: path.resolve(__dirname, 'dist')
 		},
