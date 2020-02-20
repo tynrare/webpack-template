@@ -17,9 +17,9 @@ const MAX_LISTENERS = 100;
  * @static
  */
 class EventsManager extends CoreEvents {
-	#listenersCount = 0;
+	_listenersCount = 0;
 
-	#listeners = new Map();
+	_listeners = new Map();
 
 	/**
 	 * constructs
@@ -33,8 +33,8 @@ class EventsManager extends CoreEvents {
 	 * init function call it somewhere in game clean/enter
 	 */
 	init() {
-		this.#listenersCount = 0;
-		this.#listeners.forEach(({ id, func }) => {
+		this._listenersCount = 0;
+		this._listeners.forEach(({ id, func }) => {
 			this.removeListener(id, func);
 		});
 	}
@@ -45,7 +45,7 @@ class EventsManager extends CoreEvents {
 	 * @param {string} group group to disable
 	 */
 	discard(group) {
-		this.#listeners.forEach((listener) => {
+		this._listeners.forEach((listener) => {
 			if (listener.group === group) {
 				this.removeListener(listener.id, listener.func);
 			}
@@ -65,7 +65,7 @@ class EventsManager extends CoreEvents {
 	on(id, callback, context = null, group = 'default') {
 		logger.group(
 			logger.groups.CORE_EVENTS,
-			`listen (${group}) event #${this.#listenersCount} "${id}" for function`,
+			`listen (${group}) event _${this._listenersCount} "${id}" for function`,
 			callback
 		);
 
@@ -74,10 +74,10 @@ class EventsManager extends CoreEvents {
 			func = func.bind(context);
 		}
 
-		this.#listeners.set(++this.#listenersCount, { id, func, group });
+		this._listeners.set(++this._listenersCount, { id, func, group });
 		super.addListener(id, func);
 
-		return this.#listenersCount;
+		return this._listenersCount;
 	}
 
 	/**
@@ -106,21 +106,21 @@ class EventsManager extends CoreEvents {
 
 			super.removeListener(id, callback);
 		} else {
-			if (!this.#listeners.has(id)) {
-				logger.group(logger.groups.CORE_EVENTS, `tried to unlisten event #${id} which not exists`);
+			if (!this._listeners.has(id)) {
+				logger.group(logger.groups.CORE_EVENTS, `tried to unlisten event _${id} which not exists`);
 
 				return;
 			}
 
-			const listener = this.#listeners.get(id);
+			const listener = this._listeners.get(id);
 			logger.group(
 				logger.groups.CORE_EVENTS,
-				`unlisten event #${id} ("${listener.id}") for function`,
+				`unlisten event _${id} ("${listener.id}") for function`,
 				listener.func
 			);
 
 			super.removeListener(listener.id, listener.func);
-			this.#listeners.delete(id);
+			this._listeners.delete(id);
 		}
 	}
 

@@ -51,13 +51,9 @@ module.exports = function(env) {
                         chunks: 'all'
                     },
                     default: {
-
                         minChunks: 2,
-
                         priority: -20,
-
                         reuseExistingChunk: true
-
                     }
                 }
             }
