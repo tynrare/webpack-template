@@ -3,6 +3,11 @@
 	"plugins": [
 		"@babel/plugin-transform-async-to-generator",
 		"@babel/plugin-proposal-class-properties",
-		"@babel/plugin-proposal-private-methods"
+		"@babel/plugin-proposal-private-methods",
+		["istanbul", {
+          "exclude": [
+            "lib/**/*"
+          ]
+        }]
 	]
 }

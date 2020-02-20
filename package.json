@@ -9,7 +9,7 @@
     "res": "res"
   },
   "scripts": {
-    "unit-test": "karma start karma.config.js --single-run",
+    "unit-test": "karma start karma.config.js --single-run --mode=development",
     "unit-test-watch": "webpack-dev-server --open --env.test=unit --env.chunks=true --mode=development",
     "manual-test-watch": "webpack-dev-server --open --env.test=manual --env.chunks=true --mode=development",
     "manual-test-build": "webpack --config webpack.config.js --env.test=manual --mode=development",
@@ -29,7 +29,9 @@
     "@babel/preset-env": "^7.8.4",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
+    "babel-plugin-istanbul": "^6.0.0",
     "clean-webpack-plugin": "^1.0.1",
+    "copy-webpack-plugin": "^5.1.1",
     "css-loader": "^2.1.1",
     "eslint": "^6.8.0",
     "eslint-loader": "^3.0.3",
@@ -41,6 +43,7 @@
     "karma-chrome-launcher": "^3.1.0",
     "karma-coverage": "^2.0.1",
     "karma-mocha": "^1.3.0",
+    "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
     "mocha": "^6.2.2",
     "mocha-loader": "^3.0.0",
