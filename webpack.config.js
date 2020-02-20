@@ -67,7 +67,7 @@ module.exports = function(env) {
 		output: {
 			filename: 'index.js',
             chunkFilename: '[name].[contenthash].bundle.js',
-			path: path.resolve(__dirname, 'dist')
+			path: path.resolve(__dirname, 'dist/app')
 		},
 		resolve: {
 			extensions: ['.js'],
@@ -86,7 +86,7 @@ module.exports = function(env) {
 			rules
 		},
 		plugins: [
-			new CleanWebpackPlugin(['dist']),
+			new CleanWebpackPlugin(['dist/app']),
 			new HtmlWebpackPlugin({
 				title: 'teplate'
 			}),

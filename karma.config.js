@@ -43,9 +43,12 @@ module.exports = function(config) {
     },
 
     coverageReporter: {
-      type: 'html',
-      dir: 'coverage',
-      subdir: '.',
+        dir: 'dist/reports/coverage',
+        reporters: [
+            { type: 'html', subdir: '.' },
+            { type: 'text', subdir: '.', file: 'text.txt' },
+            { type: 'text-summary', subdir: '.', file: 'text-summary.txt' }
+        ]
     },
     
     // test results reporter to use

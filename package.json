@@ -16,7 +16,7 @@
     "build-dev": "webpack --config webpack.config.js --mode=development",
     "build-prod": "webpack --config webpack.config.js --mode=production",
     "watch": "webpack-dev-server --open --mode=development",
-    "docs": "jsdoc ./src ./README.md -c jsdoc.json --pedantic -r -d docs"
+    "docs": "jsdoc ./src ./README.md -c jsdoc.json --pedantic -r -d dist/reports/docs"
   },
   "keywords": [],
   "author": "",
