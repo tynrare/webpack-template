@@ -72,6 +72,7 @@ module.exports = function(config) {
 
     // enable / disable watching file and executing tests whenever any file changes
     autoWatch: false,
+    
     singleRun: true,
 
     // start these browsers
@@ -84,10 +85,6 @@ module.exports = function(config) {
         flags: ['--no-sandbox', '--disable-web-security']
       }
     },
-
-    // Continuous Integration mode
-    // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false,
 
     // Concurrency level
     // how many browser should be started simultaneous
