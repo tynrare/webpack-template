@@ -94,8 +94,9 @@ describe('Core tests', () => {
 		it('timeout', (done) => {
 			cgn.delays.timeout(done);
 		});
-		it('timeout throw', () => {
+		it('timeout throw', (done) => {
 			cgn.delays.timeout(() => {
+				done();
 				throw new Error('Suppose to be handled');
 			});
 		});
@@ -103,7 +104,7 @@ describe('Core tests', () => {
 			const id = cgn.delays.timeout(() => {
 				done();
 			});
-			cgn.delays.clearInterval(id);
+			cgn.delays.clearTimeout(id);
 			done();
 		});
 	});
