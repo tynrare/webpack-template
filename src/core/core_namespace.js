@@ -8,6 +8,7 @@
 import logger from '@core/utils/logger.js';
 import events from '@core/utils/events_manager.js';
 import delays from '@core/utils/delays.js';
+import assert from '@core/utils/assert.js';
 
 /**
  * От core game namespace. Глобальный объект, доступный во всем коде.
@@ -33,7 +34,12 @@ const cgn = {
 	 * @see {@link module:Core/Utils/Delays.Delays}
 	 * @static
 	 */
-	delays
+	delays,
+	/**
+	 * @see https://nodejs.org/api/assert.html
+	 * @static
+	 */
+	assert
 };
 
 export default cgn;

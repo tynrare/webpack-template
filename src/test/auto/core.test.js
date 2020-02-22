@@ -1,6 +1,6 @@
 /* eslint-disable max-lines-per-function */
 
-const assert = require('assert');
+import assert from 'assert';
 
 describe('Core tests', () => {
 	describe('Events', () => {
@@ -11,11 +11,32 @@ describe('Core tests', () => {
 			cgn.events.on('test', done);
 			cgn.events.emit('test');
 		});
+		it('addListener/emit', (done) => {
+			cgn.events.addListener('test', done);
+			cgn.events.emit('test');
+		});
 		it('once/emit', (done) => {
 			cgn.events.once('test', done);
 			cgn.events.emit('test');
 			//if it triggers twice, we'll get error
 			cgn.events.emit('test');
+		});
+		it('off', (done) => {
+			cgn.events.on('test', done);
+			cgn.events.emit('test');
+			cgn.events.off('test', done);
+			//if it triggers twice, we'll get error
+			cgn.events.emit('test');
+		});
+		it('off by id', (done) => {
+			const id = cgn.events.on('test', done);
+			cgn.events.emit('test');
+			cgn.events.off(id);
+			//if it triggers twice, we'll get error
+			cgn.events.emit('test');
+		});
+		it('off wrong id', () => {
+			cgn.events.off('123123123idid');
 		});
 		it('group', (done) => {
 			cgn.events.on('test', done, null, 'test_group');
@@ -41,8 +62,21 @@ describe('Core tests', () => {
 			//in test we have not main loop, trigger manual
 			cgn.events.emit('update');
 		});
+		it('update throw', () => {
+			cgn.delays.update(() => {
+				throw new Error('Suppose to be handled');
+			});
+			//in test we have not main loop, trigger manual
+			//it doesn't throw any errors
+			cgn.events.emit('update');
+		});
 		it('immediate', (done) => {
 			cgn.delays.immediate(done);
+		});
+		it('immediate throw', () => {
+			cgn.delays.immediate(() => {
+				throw new Error('Suppose to be handled');
+			});
 		});
 		it('inteval', (done) => {
 			const id = cgn.delays.inteval(() => {
@@ -50,8 +84,27 @@ describe('Core tests', () => {
 				done();
 			}, 1);
 		});
+		it('inteval throw', (done) => {
+			const id = cgn.delays.inteval(() => {
+				cgn.delays.clearInterval(id);
+				done();
+				throw new Error('Suppose to be handled');
+			}, 1);
+		});
 		it('timeout', (done) => {
 			cgn.delays.timeout(done);
+		});
+		it('timeout throw', () => {
+			cgn.delays.timeout(() => {
+				throw new Error('Suppose to be handled');
+			});
+		});
+		it('timeout clear', (done) => {
+			const id = cgn.delays.timeout(() => {
+				done();
+			});
+			cgn.delays.clearInterval(id);
+			done();
 		});
 	});
 	describe('Logger (check console)', () => {
@@ -83,6 +136,26 @@ describe('Core tests', () => {
 			cgn.log.loggingLevel = 2;
 			cgn.log.group.error('test1', 'this error should display');
 			cgn.log.group.error('test2', 'this error should not display');
+		});
+		it('assignGroupLevels', () => {
+			const val = 5;
+			cgn.log.assignGroupLevels({ TEST_LEVEL: val });
+			cgn.assert.equal(cgn.log.groups.TEST_LEVEL, val);
+		});
+	});
+	describe('Asset', () => {
+		it('get prop', () => {
+			assert.equal(assert.prototype, cgn.assert.prototype);
+		});
+		it('get function', () => {
+			assert.notEqual(assert.ok, cgn.assert.ok);
+			cgn.assert.ok(true);
+			assert.throws(() => {
+				cgn.assert.ok(false);
+			});
+			assert.throws(() => {
+				cgn.assert.equal(1, 2);
+			});
 		});
 	});
 });
