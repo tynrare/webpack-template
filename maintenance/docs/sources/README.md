@@ -11,4 +11,4 @@ Main colors:
 Buttons fonts:
 
 - URW Bookman 24
-- URW Bookman 20
+- URW Bookman 18
