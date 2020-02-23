@@ -1,10 +1,12 @@
 # Language
 
 [![ru](./maintenance/docs/repo-readme/res/lang-select-ru.png)](./maintenance/docs/repo-readme/ru.md)
-[![en](./maintenance/docs/repo-readme/res/lang-select-en.png)](./)
+[![en](./maintenance/docs/repo-readme/res/lang-select-en.png)](./README.md)
 [![help](./maintenance/docs/repo-readme/res/lang-select-help.png)](./maintenance/docs/misc/help-with-translation.md)
 
 # Webpack template
+
+[![DeepScan grade](https://deepscan.io/api/teams/5038/projects/6835/branches/59639/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=5038&pid=6835&bid=59639)
 
 ## Overview
 
@@ -15,9 +17,6 @@ My webpack template with:
 - logger instead default console (cgn.logger.log)
 - eslinter. Also [jsdoc plugin](https://github.com/gajus/eslint-plugin-jsdoc) for it
 - tests, coverage stats
-
-[![DeepScan grade](https://deepscan.io/api/teams/5038/projects/6835/branches/59639/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=5038&pid=6835&bid=59639)
-
 
 ## Building/Running/Tests
 
