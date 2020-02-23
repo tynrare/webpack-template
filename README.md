@@ -2,7 +2,8 @@
 
 [![ru](./maintenance/docs/repo-readme/res/lang-select-ru.png)](./maintenance/docs/repo-readme/ru.md)
 [![en](./maintenance/docs/repo-readme/res/lang-select-en.png)](./README.md)
-[![help](./maintenance/docs/repo-readme/res/lang-select-help.png)](./maintenance/docs/misc/help-with-translation.md)
+
+*[help with translation](./maintenance/docs/misc/help-with-translation.md)*
 
 # Webpack template
 
