@@ -8,9 +8,9 @@
 
 ![title-image](./maintenance/docs/repo-readme/res/title-image.png)
 
-[![DeepScan grade](https://deepscan.io/api/teams/5038/projects/6835/branches/59639/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=5038&pid=6835&bid=59639)
-
 ## Overview
+
+[![DeepScan grade](https://deepscan.io/api/teams/5038/projects/6835/branches/59639/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=5038&pid=6835&bid=59639)
 
 My webpack template with:
 - Debug dev server
