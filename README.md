@@ -10,7 +10,7 @@
 
 ## Overview
 
-[![DeepScan grade](https://deepscan.io/api/teams/5038/projects/6835/branches/59639/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=5038&pid=6835&bid=59639)
+[![DeepScan grade](https://deepscan.io/api/teams/5038/projects/6835/branches/59639/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=5038&pid=6835&bid=59639) ![tests](https://github.com/tynrare/webpack-template/workflows/tests/badge.svg?branch=master)
 
 My webpack template with:
 - Debug dev server
