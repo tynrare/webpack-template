@@ -1,3 +1,5 @@
+# Language
+![ru](./maintenance/docs/repo-readme/res/lang-select-ru.png)
 # Webpack template
 
 ## Overview
