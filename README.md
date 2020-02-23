@@ -1,5 +1,6 @@
 # Language
-![ru](./maintenance/docs/repo-readme/res/lang-select-ru.png)
+[![ru](./maintenance/docs/repo-readme/res/lang-select-ru.png)](./maintenance/docs/repo-readme/ru.md)
+[![en](./maintenance/docs/repo-readme/res/lang-select-en.png)](./)
 # Webpack template
 
 ## Overview
