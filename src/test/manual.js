@@ -22,7 +22,7 @@ export function initTests() {
 	if (urlParams.has('testcase')) {
 		const name = urlParams.get('testcase');
 		const testcase = testCasesList[name];
-		cgn.log.info(`start test '${name}'`);
+		cgn.log.log(`start test '${name}'`);
 		testcase.default();
 	} else {
 		const ul = document.createElement('ui');
