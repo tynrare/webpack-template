@@ -24,7 +24,7 @@ export function initTests() {
 	if (urlParams.has('testcase')) {
 		const name = urlParams.get('testcase');
 		const testcase = testCasesList[name];
-		cgn.logger.info(`start test '${name}'`);
+		cgn.log.info(`start test '${name}'`);
 		testcase.default();
 	} else {
 		const ul = document.createElement('ui');
@@ -35,7 +35,7 @@ export function initTests() {
 		}
 		document.body.appendChild(ul);
 
-		cgn.logger.error('nothing to run. select case in dev menu');
+		cgn.log.error('nothing to run. select case in dev menu');
 	}
 }
 

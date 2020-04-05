@@ -47,8 +47,8 @@ module.exports = function(env) {
             removeAvailableModules: true,
             removeEmptyChunks: true,
             moduleIds: 'hashed',
-            runtimeChunk: makechunks && 'single',
-            splitChunks: makechunks && {
+            runtimeChunk: true,
+            splitChunks: {
                 cacheGroups: {
                     vendor: {
                         test: /[\\/]node_modules[\\/]|[\\/]lib[\\/]/,

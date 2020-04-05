@@ -10,8 +10,8 @@
   },
   "scripts": {
     "unit-test": "karma start karma.config.js --single-run --mode=development",
-    "unit-test-watch": "webpack-dev-server --open --env.test=unit --env.chunks=true --mode=development",
-    "manual-test-watch": "webpack-dev-server --open --env.test=manual --env.chunks=true --mode=development",
+    "unit-test-watch": "webpack-dev-server --open --env.test=unit --mode=development",
+    "manual-test-watch": "webpack-dev-server --open --env.test=manual --mode=development",
     "manual-test-build": "webpack --config webpack.config.js --env.test=manual --mode=development",
     "build-dev": "webpack --config webpack.config.js --mode=development",
     "build-prod": "webpack --config webpack.config.js --mode=production",
