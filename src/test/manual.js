@@ -1,10 +1,8 @@
 /**
  * @file index.js
  *
- * @format
  * @author tynrare
  * @version 1
- * @date 2019-08-26
  * @module Tests/Manual/Index
  */
 
@@ -43,7 +41,8 @@ initTests();
 
 /**
  * Sets new URL and reloads page. Expects new page will start 'initTests'
- * @param {String} name
+ *
+ * @param {string} name test name
  */
 export function runTestCase(name) {
 	window.location.search = new URLSearchParams({ testcase: name }).toString();
