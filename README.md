@@ -7,6 +7,22 @@
 
 ![title-image](./maintenance/docs/repo-readme/res/title-image.png)
 
+## Get and run
+
+[degit](https://github.com/Rich-Harris/degit) is cool option:
+
+`npm install -g degit`
+
+And than copy whole template:
+
+```
+degit tynrare/webpack-template my-new-project
+cd my-new-project
+npm install
+npm run 
+manual-test-watch
+```
+
 ## Overview
 
 [![DeepScan grade](https://deepscan.io/api/teams/5038/projects/6835/branches/59639/badge/grade.svg)](https://deepscan.io/dashboard#view=project&tid=5038&pid=6835&bid=59639) ![tests](https://github.com/tynrare/webpack-template/workflows/tests/badge.svg?branch=master)
