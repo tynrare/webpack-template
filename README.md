@@ -79,6 +79,10 @@ How to add new case:
 
 `npm run docs` builds jsdoc docs. You can find it in ./docs folder
 
+### Code
+
+- Adding new aliases for pat
+
 # Contribute
 
 *[help with translation](./maintenance/docs/misc/help-with-translation.md)*

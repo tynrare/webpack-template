@@ -3,6 +3,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const rules = require('./webpack.rules.js');
+const aliases = require('./webpack.aliases.js');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
@@ -70,16 +71,7 @@ module.exports = function(env) {
 		},
 		resolve: {
 			extensions: ['.js'],
-			alias: {
-				'@app': path.resolve(__dirname, './src/'),
-				'@game': path.resolve(__dirname, './src/game'),
-				'@classes': path.resolve(__dirname, './src/game/classes'),
-				'@res': path.resolve(__dirname, './res'),
-				'@backend': path.resolve(__dirname, './src/game/backend'),
-				'@core': path.resolve(__dirname, './src/core'),
-				'@test': path.resolve(__dirname, './src/test'),
-				'@lib': path.resolve(__dirname, './lib/')
-			}
+			alias: aliases
 		},
 		module: {
 			rules
