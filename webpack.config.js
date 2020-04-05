@@ -11,7 +11,6 @@ const TerserPlugin = require('terser-webpack-plugin');
 module.exports = function(env) {
 	const production = process.env.NODE_ENV === 'production';
 	const test = (env && env.test) || null;
-    const makechunks = Boolean(env && env.chunks);
     let entry = './src/index.js';
 
 	switch (test) {

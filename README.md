@@ -13,7 +13,7 @@
 
 `npm install -g degit`
 
-And than copy whole template:
+And than copy and run template:
 
 ```
 degit tynrare/webpack-template my-new-project
