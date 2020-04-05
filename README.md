@@ -2,7 +2,6 @@
 
 [![ru](./maintenance/docs/repo-readme/res/lang-select-ru.png)](./maintenance/docs/repo-readme/ru.md)
 [![en](./maintenance/docs/repo-readme/res/lang-select-en.png)](./README.md)
-[![help](./maintenance/docs/repo-readme/res/lang-select-help.png)](./maintenance/docs/misc/help-with-translation.md)
 
 # Webpack template
 
@@ -63,3 +62,7 @@ How to add new case:
 ### Docs
 
 `npm run docs` builds jsdoc docs. You can find it in ./docs folder
+
+# Contribute
+
+*[help with translation](./maintenance/docs/misc/help-with-translation.md)*
