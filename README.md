@@ -30,8 +30,8 @@ manual-test-watch
 My webpack template with:
 - Debug dev server
 - Babel preset
-- async/await. It adds additional 900kB, so if you want to disable it - delete `require("babel-polyfill")` in index.js
-- logger instead default console (cgn.logger.log)
+- async/await. It adds additional 900kB, so if you want to disable it - delete `'babel-polyfill'` in `entry` array webpack.config.js
+- logger instead default console (cgn.log.log)
 - eslinter. Also [jsdoc plugin](https://github.com/gajus/eslint-plugin-jsdoc) for it
 - tests, coverage stats
 
