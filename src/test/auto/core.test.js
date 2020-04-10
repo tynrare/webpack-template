@@ -78,14 +78,14 @@ describe('Core tests', () => {
 				throw new Error('Suppose to be handled');
 			});
 		});
-		it('inteval', (done) => {
-			const id = cgn.delays.inteval(() => {
+		it('interval', (done) => {
+			const id = cgn.delays.interval(() => {
 				cgn.delays.clearInterval(id);
 				done();
 			}, 1);
 		});
-		it('inteval throw', (done) => {
-			const id = cgn.delays.inteval(() => {
+		it('interval throw', (done) => {
+			const id = cgn.delays.interval(() => {
 				cgn.delays.clearInterval(id);
 				done();
 				throw new Error('Suppose to be handled');

@@ -51,7 +51,7 @@ const Delays = {
 	 * @param {number} time interval delay
 	 * @returns {number} id setInterval
 	 */
-	inteval(callback, time) {
+	interval(callback, time) {
 		return setInterval(() => {
 			try {
 				callback();
