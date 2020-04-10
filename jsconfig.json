@@ -9,9 +9,6 @@
         "paths": {
             "@app/*":  ["./src/*"],
             "@core/*":  ["./src/core/*"],
-            "@game/*":  ["./src/game/*"],
-            "@classes/*": ["./src/game/classes/*"],
-            "@backend/*":  ["./src/game/backend/*"],
             "@test/*":  ["./src/test/*"],
             "@lib/*":  ["./lib/*"],
             "@res/*":  ["./res/*"]

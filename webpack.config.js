@@ -9,8 +9,8 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 
-module.exports = function(env) {
-	const production = process.env.NODE_ENV === 'production';
+module.exports = function(env, argv) {
+	const production = argv.mode === 'production';
 	const test = (env && env.test) || null;
     let entry = './src/index.js';
 
@@ -32,7 +32,7 @@ module.exports = function(env) {
         node: {
             fs: "empty"
         },
-		mode: process.env.NODE_ENV || 'production',
+		mode: argv.mode || 'production',
 		optimization: {
             minimize: production,
             minimizer: [
